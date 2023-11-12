@@ -1,3 +1,5 @@
+game();
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if (choice === 0) {
@@ -15,7 +17,7 @@ function playRound(playerSelection, computerSelection) {
             if (computerSelection === 'Rock') {
                 return "It's a tie!";
             } else if (computerSelection === 'Paper') {
-                return "You lose! Paper beats Rock";
+                return "You Lose! Paper beats Rock";
             } else {
                 return "You Win! Rock beats Scissors!";
             }
@@ -38,5 +40,29 @@ function playRound(playerSelection, computerSelection) {
                 return "You Win! Scissors beats Paper!";
             }
             break;
+    }
+}
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let choice = prompt("Choose Rock, Paper or Scissors: ");
+        let result = playRound(choice, getComputerChoice());
+        if (result.includes("Win")) {
+            playerScore++;
+        } else if (result.includes("Lose")) {
+            computerScore++;
+        }
+        console.log(result);
+    }
+
+    if (playerScore > computerScore) {
+        console.log("Human is victorious!");
+    } else if (computerScore > playerScore) {
+        console.log("Computer is victorious!");
+    } else {
+        console.log("No one wins! That sucks!");
     }
 }
