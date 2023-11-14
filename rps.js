@@ -12,6 +12,8 @@ const score = document.querySelector('.score');
 let playerScore = 0;
 let computerScore = 0;
 
+score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if (choice === 0) {
