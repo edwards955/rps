@@ -7,6 +7,10 @@ buttons.forEach((button) => {
 });
 
 const results = document.querySelector('.results');
+const score = document.querySelector('.score');
+
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
@@ -26,8 +30,10 @@ function playRound(playerSelection, computerSelection) {
         results.textContent = "It's a tie!";
       } else if (computerSelection === 'Paper') {
         results.textContent = "You Lose! Paper beats Rock";
+        computerScore++;
       } else {
         results.textContent = "You Win! Rock beats Scissors!";
+        playerScore++;
       }
       break;
     case 'paper':
@@ -35,8 +41,10 @@ function playRound(playerSelection, computerSelection) {
         results.textContent = "It's a tie!";
       } else if (computerSelection === "Scissors") {
         results.textContent = "You Lose! Scissors beats Paper";
+        computerScore++;
       } else {
         results.textContent = "You Win! Paper beats Rock!";
+        playerScore++;
       }
       break;
     case 'scissors':
@@ -44,11 +52,14 @@ function playRound(playerSelection, computerSelection) {
         results.textContent = "It's a tie!";
       } else if (computerSelection === "Rock") {
         results.textContent = "You Lose! Rock beats Scissors!";
+        computerScore++;
       } else {
         results.textContent = "You Win! Scissors beats Paper!";
+        playerScore++;
       }
       break;
   }
+  score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`
 }
 
 function game() {
