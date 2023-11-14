@@ -1,4 +1,10 @@
-game();
+// Add click handlers to RPS buttons
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    playRound(button.getAttribute('name'), getComputerChoice());
+  });
+});
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
@@ -15,11 +21,11 @@ function playRound(playerSelection, computerSelection) {
     switch(playerSelection.toLowerCase()) {
         case 'rock':
             if (computerSelection === 'Rock') {
-                return "It's a tie!";
+                console.log("It's a tie!");
             } else if (computerSelection === 'Paper') {
-                return "You Lose! Paper beats Rock";
+                console.log("You Lose! Paper beats Rock");
             } else {
-                return "You Win! Rock beats Scissors!";
+                console.log("You Win! Rock beats Scissors!");
             }
             break;
         case 'paper':
