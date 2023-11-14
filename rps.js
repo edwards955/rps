@@ -60,6 +60,7 @@ function playRound(playerSelection, computerSelection) {
       break;
   }
   score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`
+  checkForWinner();
 }
 
 function game() {
@@ -84,4 +85,12 @@ function game() {
     } else {
         console.log("No one wins! That sucks!");
     }
+}
+
+function checkForWinner() {
+  if (playerScore === 5) {
+    console.log("Human is victorious!");
+  } else if (computerScore === 5) {
+    console.log("Computer is victorious!");
+  }
 }
